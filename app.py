@@ -1,5 +1,5 @@
 import ast
 
 
-def risky_eval(user_input):
-    return ast.literal_eval(user_input)
+def risky_eval(x):
+    return ast.literal_eval(x)
