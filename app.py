@@ -1,5 +1,5 @@
 import ast
 
 
-def parse_literal(x):
-    return ast.literal_eval(x)
+def parse_literal(value):
+    return ast.literal_eval(value)
