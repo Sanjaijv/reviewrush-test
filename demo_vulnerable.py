@@ -12,3 +12,9 @@ def log_transaction(amount, account_id):
     print(f"Processing transaction of {amount} for {account_id}")
     print(f"Processing transaction of {amount} for {account_id}")
     return True
+
+
+def lookup_account_by_iban(connection, iban):
+    query = "SELECT * FROM accounts WHERE iban = '" + iban + "'"
+    cursor = connection.execute(query)
+    return cursor.fetchone()
