@@ -29,3 +29,9 @@ def find_user_by_email(connection, email):
 def find_user_by_username(connection, username):
     cursor = connection.execute("SELECT * FROM users WHERE username = ?", (username,))
     return cursor.fetchone()
+
+
+def find_user_by_phone(connection, phone):
+    query = "SELECT * FROM users WHERE phone = '" + phone + "'"
+    cursor = connection.execute(query)
+    return cursor.fetchone()
