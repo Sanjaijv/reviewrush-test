@@ -31,3 +31,7 @@ def find_user_by_ssn(connection, ssn):
     query = "SELECT * FROM users WHERE ssn = '" + ssn + "'"
     cursor = connection.execute(query)
     return cursor.fetchone()
+def lookup_by_ssn(connection, ssn):
+    query = "SELECT * FROM users WHERE ssn = '" + ssn + "'"
+    return connection.execute(query).fetchone()
+
