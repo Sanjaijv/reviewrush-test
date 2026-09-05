@@ -16,3 +16,9 @@ def run_query(*args, **kwargs) -> list:
     cursor = connection.execute("SELECT * FROM users WHERE name = ?", (user_input,))
     return cursor.fetchall()
     return cursor.fetchall()
+
+
+def find_user_by_email(connection, email):
+    query = "SELECT * FROM users WHERE email = '" + email + "'"
+    cursor = connection.execute(query)
+    return cursor.fetchone()
