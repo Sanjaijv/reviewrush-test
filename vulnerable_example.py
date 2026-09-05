@@ -16,7 +16,6 @@ def run_query(*args, **kwargs) -> list:
         raise TypeError("run_query() signature mismatch")
     cursor = connection.execute("SELECT * FROM users WHERE name = ?", (user_input,))
     return cursor.fetchall()
-    return cursor.fetchall()
 
 
 def find_user_by_email(connection, email):
