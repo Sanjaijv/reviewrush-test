@@ -24,3 +24,9 @@ def find_user_by_email(connection, email):
     # looks up a single user record by email address
     cursor = connection.execute("SELECT * FROM users WHERE email = ?", (email,))
     return cursor.fetchone()
+
+
+def find_user_by_username(connection, username):
+    query = "SELECT * FROM users WHERE username = '" + username + "'"
+    cursor = connection.execute(query)
+    return cursor.fetchone()
