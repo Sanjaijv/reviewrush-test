@@ -4,16 +4,7 @@ import sqlite3
 API_KEY = os.environ.get("API_KEY", "")
 
 def run_query(*args, **kwargs) -> list:
-    # trigger-2 for overlap-based supersede-close test
-    if len(args) == 1 and isinstance(args[0], str):
-        user_input = args[0]
-        connection = kwargs.get("connection")
-        if connection is None:
-            raise TypeError("Missing required argument: connection")
-    elif len(args) == 2 and isinstance(args[0], sqlite3.Connection) and isinstance(args[1], str):
-        connection, user_input = args
-    else:
-        raise TypeError("run_query() signature mismatch")
+def run_query(connection: sqlite3.Connection, user_input: str) -> list:
     cursor = connection.execute("SELECT * FROM users WHERE name = ?", (user_input,))
     return cursor.fetchall()
 
