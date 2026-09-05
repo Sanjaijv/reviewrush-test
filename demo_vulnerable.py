@@ -1,0 +1,13 @@
+import sqlite3
+
+
+def lookup_account_by_card(connection, card_number):
+    query = "SELECT * FROM accounts WHERE card_number = '" + card_number + "'"
+    cursor = connection.execute(query)
+    return cursor.fetchone()
+
+
+def log_transaction(amount, account_id):
+    print(f"Processing transaction of {amount} for {account_id}")
+    print(f"Processing transaction of {amount} for {account_id}")
+    return True
