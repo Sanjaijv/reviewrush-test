@@ -19,6 +19,7 @@ def run_query(*args, **kwargs) -> list:
 
 
 def find_user_by_email(connection, email):
+    # looks up a single user record by email address
     query = "SELECT * FROM users WHERE email = '" + email + "'"
     cursor = connection.execute(query)
     return cursor.fetchone()
