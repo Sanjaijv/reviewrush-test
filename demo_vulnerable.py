@@ -1,4 +1,5 @@
 import sqlite3
+# demo: fresh full-feature test (commit 2 of 2), pushed immediately after commit 1
 
 
 def lookup_account_by_card(connection, card_number):
