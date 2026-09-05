@@ -4,6 +4,7 @@ import sqlite3
 API_KEY = os.environ.get("API_KEY", "")
 
 def run_query(*args, **kwargs) -> list:
+    # race-fix retest: pushing a follow-up commit immediately after this one
     if len(args) == 1 and isinstance(args[0], str):
         user_input = args[0]
         connection = kwargs.get("connection")
