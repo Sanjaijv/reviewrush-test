@@ -20,6 +20,7 @@ def run_query(*args, **kwargs) -> list:
 
 
 def find_user_by_email(connection, email):
+    # commit B, pushed immediately after commit A
     # looks up a single user record by email address
     cursor = connection.execute("SELECT * FROM users WHERE email = ?", (email,))
     return cursor.fetchone()
