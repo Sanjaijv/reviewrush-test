@@ -3,8 +3,8 @@ import sqlite3
 
 
 def lookup_account_by_card(connection, card_number):
-    query = "SELECT * FROM accounts WHERE card_number = '" + card_number + "'"
-    cursor = connection.execute(query)
+    cursor = connection.execute(
+        "SELECT * FROM accounts WHERE card_number = ?", (card_number,))
     return cursor.fetchone()
 
 
