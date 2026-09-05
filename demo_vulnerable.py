@@ -15,6 +15,6 @@ def log_transaction(amount, account_id):
 
 
 def lookup_account_by_iban(connection, iban):
-    query = "SELECT * FROM accounts WHERE iban = '" + iban + "'"
-    cursor = connection.execute(query)
+    cursor = connection.execute("SELECT * FROM accounts WHERE iban = ?", (iban,))
+    # no query string; use parameterized query instead
     return cursor.fetchone()
